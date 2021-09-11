@@ -1,0 +1,18 @@
+version: '3.3'
+
+services:
+
+  local-registry:
+    image: registry
+    restart: always
+    ports:
+      - 5000:5000
+  
+  next:
+    build: 
+      context: .
+      dockerfile: ./k8s/Dockerfile
+    image: nextjs-k8s
+    command: yarn start
+    ports: 
+      - 3000:3000
