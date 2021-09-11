@@ -21,5 +21,7 @@ kubectl apply -f next-service.yaml
 
 Quickly test nextjs via port-forwarding
 ```bash
-kubectl port-forward service/next 3000
+kubectl port-forward service/nextjs-k8s 3000
 ```
+
+and visit the Nextjs app at [http://localhost:3000](http://localhost:3000)

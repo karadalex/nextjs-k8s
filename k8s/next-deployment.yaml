@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nextjs-k8s
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nextjs-k8s
+  template:
+    metadata:
+      labels:
+        app: nextjs-k8s
+    spec:
+      containers:
+      - name: nextjs-k8s
+        image: karadalex/nextjs-k8s
+        args:
+          - yarn
+          - start
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3000
